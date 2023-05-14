@@ -43,7 +43,29 @@ class ll {
             console.log(value)
         }
     }
-    
+    removeDuplicates(){
+        if (this.isEmpty()) {
+            return
+        }
+
+        let curr = this.head
+
+        while (curr) {
+            let runner = curr
+
+            while (runner.next) {
+                if (runner.next.value === curr.value) {
+                    // remove duplicate node
+                    runner.next = runner.next.next
+                    this.size--
+                } else {
+                    runner = runner.next
+                }
+            }
+            curr = curr.next
+        }
+    }
+
 }
 
 const list = new ll()

@@ -75,17 +75,23 @@ class ll{
             console.log(value);
         }
     }
-    findMiddle() {
-        if (this.isEmpty()) {
-            return null;
+    deleteMiddleElement(){
+        if(this.isEmpty()){
+            return null
         }
-        let slow = this.head;
-        let fast = this.head;
-        while (fast !== null && fast.next !== null) {
-            slow = slow.next;
-            fast = fast.next.next;
+        let slow = this.head
+        let fast = this.head
+        let prev = null
+        while(fast && fast.next){
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
         }
-        return slow.value;
+        if(prev){
+            prev.next = slow.next
+        }else{
+            this.head = slow.next
+        }
     }
 }
 const list = new ll()
@@ -94,7 +100,6 @@ list.append(20)
 list.append(30)
 list.append(40)
 list.prepend(1)
-// console.log(findMiddle());
 list.removefromfirst()
 list.removeformlast()
 list.print()

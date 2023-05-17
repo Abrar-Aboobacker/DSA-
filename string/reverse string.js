@@ -6,3 +6,5 @@ function reverseString(str) {
     return newString;
 }
 console.log(reverseString('hello'));
+let s = 'hy'
+console.log(s.split('').reverse().join(''));

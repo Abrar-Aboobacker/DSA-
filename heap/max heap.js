@@ -58,6 +58,21 @@ class MaxHeap {
       }
     }
   }
+  function heapSort(arr) {
+    // Create a new instance of MinHeap
+    const heap = new MaxHeap();
+  
+    // Build the heap from the input array
+    heap.build(arr);
+  
+    const sortedArray = [];
+    while (heap.heap.length > 0) {
+      // Remove the minimum value from the heap and add it to the sortedArray
+      sortedArray.push(heap.remove());
+    }
+  
+    return sortedArray;
+  }
   
   const heap = new MaxHeap();
   
@@ -74,4 +89,5 @@ class MaxHeap {
   const maxValue = heap.remove();
   console.log(maxValue); // 15
   console.log(heap.heap); // [12, 10, 3, 9, 5, 2]
-  
+  console.log('sorted Array:')
+  console.log(heapSort([9, 5, 2, 10, 15, 3]));

@@ -59,6 +59,21 @@ class MinHeap {
     }
   }
 
+  function heapSort(arr) {
+    // Create a new instance of MinHeap
+    const heap = new MinHeap();
+  
+    // Build the heap from the input array
+    heap.build(arr);
+  
+    const sortedArray = [];
+    while (heap.heap.length > 0) {
+      // Remove the minimum value from the heap and add it to the sortedArray
+      sortedArray.push(heap.remove());
+    }
+  
+    return sortedArray;
+  }
   const heap = new MinHeap();
 
 // Build the heap
@@ -71,6 +86,8 @@ heap.insert(1);
 console.log(heap.heap); // [1, 5, 2, 10, 15, 9, 3]
 
 // Remove the minimum value
-const minValue = heap.dremove();
+const minValue = heap.remove();
 console.log(minValue); // 1
 console.log(heap.heap); // [2, 5, 3, 10, 15, 9]
+console.log("sorted Array:")
+console.log(heapSort([9, 5, 2, 10, 15, 3]));

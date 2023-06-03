@@ -48,7 +48,7 @@ class BST{
  }  
  deleteNode(root,value){
     if(root ===null){
-        return
+        return root
     }
     if(value<root.value){
         root.left = this.deleteNode(root.left,value)
@@ -88,6 +88,6 @@ bst.insert(10)
 bst.insert(5)
 bst.insert(15)
 bst.insert(3)
-bst.levelOrder()
+// bst.levelOrder()
 bst.delete(10)
 bst.levelOrder()
